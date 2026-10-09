@@ -14,10 +14,11 @@ I focus on practical EVM development and the tools around it. I work from clear 
 ## Selected projects
 
 - [Stablecoin Payment Gateway](https://github.com/foxcryptie/stablecoin-payment-gateway) — ERC-20 invoice payments with merchant settlement, pre-settlement refunds, fee accounting, tests, and a threat model.
+- [Smart Contract Security Lab](https://github.com/foxcryptie/smart-contract-security-lab) — three local Foundry case studies of reentrancy, `tx.origin` authorization, and signature replay, each with an exploit proof and corrected example.
 - [ERC-4626 Vault Lab](https://github.com/foxcryptie/erc4626-vault-lab) — share accounting and donation-based yield simulation using OpenZeppelin ERC-4626, with rounding tests and security notes.
 - [BasiXenuM](https://github.com/foxcryptie/BasiXenuM) — a Python CLI for organizing Nmap reconnaissance in authorized labs and CTFs.
 
-The Solidity repositories are reference implementations, not audited or deployed financial products.
+The Solidity repositories are reference implementations, not audited or deployed financial products. The Security Lab contains deliberately vulnerable contracts for local study only.
 
 ## Work with me
 
