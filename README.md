@@ -1,25 +1,14 @@
 # foxcryptie
 
-**Solidity · EVM smart contracts · Foundry testing · Python tooling**
+Current focus: Solidity storage, payment accounting, and tests that show what a contract actually does. I also write small Python tools when they help with that work.
 
-I focus on practical EVM development and the tools around it. I work from clear requirements, write readable code, test expected behavior, and document assumptions and limits.
+If you want to judge the code, these are good places to start:
 
-## What I can help with
+- [Solidity Layout Diff](https://github.com/foxcryptie/solidity-layout-diff) reads `solc` storage-layout JSON and flags moved variables, type changes, and storage-gap cases. The examples are checked-in compiler output, so the tests can run without `solc`. A `PASS` covers storage layout only.
+- [Stablecoin Payment Gateway](https://github.com/foxcryptie/stablecoin-payment-gateway) tracks pending invoice payments, merchant balances, and fees for one ERC-20 token. The tests follow those balances through payment, refund, settlement, and withdrawal. The merchant decides whether to settle or refund.
+- [Smart Contract Security Lab](https://github.com/foxcryptie/smart-contract-security-lab) pairs three deliberately broken contracts with focused fixes. Start with the tests: they show the reentrant withdrawal, the `tx.origin` relay, and a reused signature before checking the corrected paths.
+- [ERC-4626 Vault Lab](https://github.com/foxcryptie/erc4626-vault-lab) is an OpenZeppelin vault with a donation function. The tests are about share prices and rounding after assets arrive without new shares. It does not generate yield.
 
-- Small Solidity contracts and clearly scoped contract features
-- Foundry tests for contract behavior and edge cases
-- Python scripts and CLI tools for developer workflows
-- Setup guides, technical documentation, and handoff notes
+These are reference and learning projects. The contracts have not been audited or deployed as financial products. The security lab's vulnerable contracts are for local tests only.
 
-## Selected projects
-
-- [Stablecoin Payment Gateway](https://github.com/foxcryptie/stablecoin-payment-gateway) — ERC-20 invoice payments with merchant settlement, pre-settlement refunds, fee accounting, tests, and a threat model.
-- [Smart Contract Security Lab](https://github.com/foxcryptie/smart-contract-security-lab) — three local Foundry case studies of reentrancy, `tx.origin` authorization, and signature replay, each with an exploit proof and corrected example.
-- [ERC-4626 Vault Lab](https://github.com/foxcryptie/erc4626-vault-lab) — share accounting and donation-based yield simulation using OpenZeppelin ERC-4626, with rounding tests and security notes.
-- [BasiXenuM](https://github.com/foxcryptie/BasiXenuM) — a Python CLI for organizing Nmap reconnaissance in authorized labs and CTFs.
-
-The Solidity repositories are reference implementations, not audited or deployed financial products. The Security Lab contains deliberately vulnerable contracts for local study only.
-
-## Work with me
-
-Have a defined smart contract or automation task? [Open a project inquiry](https://github.com/foxcryptie/foxcryptie/issues/new) with the goal, target chain or environment, expected behavior, and timeline. I can discuss scope and deliverables from there.
+For a scoped contract or tooling task, [open an issue here](https://github.com/foxcryptie/foxcryptie/issues/new) with the environment, expected behavior, and what would count as done.
