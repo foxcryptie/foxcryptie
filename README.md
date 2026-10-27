@@ -1,16 +1,14 @@
 # foxcryptie
 
-Solidity and Python projects, with code, tests, and notes on what each project does and does not cover.
+Current focus: Solidity storage, payment accounting, and tests that show what a contract actually does. I also write small Python tools when they help with that work.
 
-## Selected projects
+If you want to judge the code, these are good places to start:
 
-- [Solidity Layout Diff](https://github.com/foxcryptie/solidity-layout-diff) — a Python CLI that compares Solidity compiler storage layouts. It reports `PASS`, `REVIEW`, `FAIL`, or `UNASSESSED` and includes regression cases built from checked-in compiler output. It is a first-pass check, not a full upgrade validator.
-- [Stablecoin Payment Gateway](https://github.com/foxcryptie/stablecoin-payment-gateway) — a single-token invoice contract with separate pending funds, merchant credit, and protocol fees. Foundry tests cover settlement, refunds, fee-on-transfer rejection, and accounting. The merchant controls settlement and refunds; the payer has no forced refund path.
-- [Smart Contract Security Lab](https://github.com/foxcryptie/smart-contract-security-lab) — local Foundry examples of reentrancy, `tx.origin` authorization, and signature replay. Each case has a vulnerable contract, a corrected example, and tests that show the difference.
-- [ERC-4626 Vault Lab](https://github.com/foxcryptie/erc4626-vault-lab) — an OpenZeppelin-based vault used to test deposits, withdrawals, share rounding, and how asset donations change share value. It has no yield strategy.
+- [Solidity Layout Diff](https://github.com/foxcryptie/solidity-layout-diff) reads `solc` storage-layout JSON and flags moved variables, type changes, and storage-gap cases. The examples are checked-in compiler output, so the tests can run without `solc`. A `PASS` covers storage layout only.
+- [Stablecoin Payment Gateway](https://github.com/foxcryptie/stablecoin-payment-gateway) tracks pending invoice payments, merchant balances, and fees for one ERC-20 token. The tests follow those balances through payment, refund, settlement, and withdrawal. The merchant decides whether to settle or refund.
+- [Smart Contract Security Lab](https://github.com/foxcryptie/smart-contract-security-lab) pairs three deliberately broken contracts with focused fixes. Start with the tests: they show the reentrant withdrawal, the `tx.origin` relay, and a reused signature before checking the corrected paths.
+- [ERC-4626 Vault Lab](https://github.com/foxcryptie/erc4626-vault-lab) is an OpenZeppelin vault with a donation function. The tests are about share prices and rounding after assets arrive without new shares. It does not generate yield.
 
-These are learning and reference projects. The contracts have not been independently audited and should not be used with real funds. The security lab deliberately includes vulnerable contracts for local testing.
+These are reference and learning projects. The contracts have not been audited or deployed as financial products. The security lab's vulnerable contracts are for local tests only.
 
-## Contact
-
-For a scoped contract or Python tooling task, [open a project inquiry](https://github.com/foxcryptie/foxcryptie/issues/new) with the goal, environment, expected behavior, and timeline.
+For a scoped contract or tooling task, [open an issue here](https://github.com/foxcryptie/foxcryptie/issues/new) with the environment, expected behavior, and what would count as done.
